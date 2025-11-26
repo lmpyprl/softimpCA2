@@ -11,6 +11,10 @@ package ie.atu.flight;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 // INHERITANCE - Employee IS-A Person
 // and CAN-DO Payable methods
 public class Employee extends Person 
@@ -128,5 +132,32 @@ public class Employee extends Person
 		
       return salary;
    }
+   
+   public boolean readEmployee() {
+	   JTextField txtFirstName = new JTextField();
+	   JTextField txtSurname = new JTextField();
+	   JTextField txtPhoneNumber = new JTextField();
+	   Object[] message = {
+		   "First Name:", txtFirstName,
+		   "Surname:", txtSurname,
+		   "Phone Number:", txtPhoneNumber,
+	   };
+	   JDialog dialog = new JDialog();
+	   dialog.setAlwaysOnTop(true);
+	   int option = JOptionPane.showConfirmDialog(dialog, message,
+	   "ENTER EMPLOYEE DETAILS", JOptionPane.OK_CANCEL_OPTION);
+	   
+	   if (option == JOptionPane.OK_OPTION){
+		   this.name.setFirstName(txtFirstName.getText());
+		   this.name.setSurname(txtSurname.getText());
+		   this.phoneNumber=txtPhoneNumber.getText();
+		   return true;
+	   }
+	   else // CANCEL_OPTION
+	   return false;
+	}
+   
+   
+   
 }
 

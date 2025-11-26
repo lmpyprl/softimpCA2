@@ -18,8 +18,9 @@ public class EmployeeSerializer {
    public EmployeeSerializer(){
       // Construct EmployeeList ArrayList
       employees = new ArrayList<Employee>();
+      employeesFile = new File(FILENAME);
       try {
-	    	  if(employeesFile.createNewFile()) { }
+	    	  if(employeesFile.createNewFile()) { System.out.println("File created");}
 	    	  else { System.out.println("File exists. ");}
       }
 	  catch(Exception e) {
@@ -41,7 +42,10 @@ public class EmployeeSerializer {
       // TODO - Update add() so it checks if Cancel was clicked when reading Employee
        
       // Read its details
-      employee.read();
+      if(employee.readEmployee()) {}
+      else {
+    	  System.out.println("Employee Add was cancelled. ");
+      }
       // And add it to the employees ArrayList
       employees.add(employee);	
    }
