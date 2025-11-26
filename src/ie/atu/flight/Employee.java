@@ -8,12 +8,13 @@
  */
 package ie.atu.flight;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
 // INHERITANCE - Employee IS-A Person
 // and CAN-DO Payable methods
 public class Employee extends Person 
-                      implements Payable {
+                      implements Payable, Serializable{
    private Date dob;	       // Employee has name&phoneNo from Person		
    private Date startDate;	 // AND dob,startdate,salary, & number		
    private double salary;	
@@ -60,10 +61,10 @@ public class Employee extends Person
    public String toString(){
 	   DecimalFormat df=new DecimalFormat("#.00");
 		
-      return number + " " + name + "\t€" +  df.format(salary) + ".";
+      return number + " " + name + "\tï¿½" +  df.format(salary) + ".";
 		
       // OR
-      // return number + " " + name + "\t€" +  String.format("%.2f", salary) + ".";	
+      // return number + " " + name + "\tï¿½" +  String.format("%.2f", salary) + ".";	
    }
 
    // equals() method
@@ -119,7 +120,7 @@ public class Employee extends Person
 
    public double incrementSalary(double incrementAmount) {
       // add incrementAmount to, and return the new salary
-      // salary should not go over a maximum salary of €150,000
+      // salary should not go over a maximum salary of ï¿½150,000
       salary += incrementAmount;
 		
       if(salary > MAX_SALARY)
