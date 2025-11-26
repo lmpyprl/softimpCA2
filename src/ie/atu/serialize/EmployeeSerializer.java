@@ -18,9 +18,13 @@ public class EmployeeSerializer {
    public EmployeeSerializer(){
       // Construct EmployeeList ArrayList
       employees = new ArrayList<Employee>();
-
-      // TODO Construct employeesFile and physically create the File
-
+      try {
+	    	  if(employeesFile.createNewFile()) { }
+	    	  else { System.out.println("File exists. ");}
+      }
+	  catch(Exception e) {
+		  System.out.println("Error creating file" + e.toString());
+	  }
    }	
 
    /////////////////////////////////////////////////////////////
