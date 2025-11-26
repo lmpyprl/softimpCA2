@@ -116,7 +116,22 @@ public class EmployeeSerializer {
    // i.e. it will write employees to a file called employees.bin
    public void serializeEmployees(){
       // TODO - Write the code for serializeEmployees()
-      JOptionPane.showMessageDialog(null, "You must write the code for the serializeEmployees() method.", "NOT IMPLEMENTED", JOptionPane.INFORMATION_MESSAGE);		
+      ObjectOutputStream os = null;
+      
+      try {
+    	  FileOutputStream fs = new FileOutputStream(employeesFile);
+    	  os = new ObjectOutputStream(fs);
+    	  
+    	  os.writeObject(employees);
+    	  System.out.println("Employees have been written to " + employeesFile.getName());
+      }
+      catch(FileNotFoundException e){
+          System.out.println("Cannot open file " + employeesFile.getName() + ".");
+       }
+       catch(IOException e){
+          System.out.println("Cannot write to " + employeesFile.getName() + ".");
+       }
+       
    }
 
    // This method will deserialize the Employees ArrayList when called, 
