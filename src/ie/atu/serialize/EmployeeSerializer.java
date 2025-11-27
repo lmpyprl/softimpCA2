@@ -85,7 +85,38 @@ public class EmployeeSerializer {
    ////////////////////////////////////////////////////////////////	
    public Employee view(){
       // TODO - Write the code for view()
-      JOptionPane.showMessageDialog(null, "view() method must be coded!", "NOT IMPLEMENTED", JOptionPane.INFORMATION_MESSAGE);			
+	   Employee foundEmployee = null;
+	   boolean validInput = false;
+	   
+	   while (!validInput) {
+		   try {
+			   String input = JOptionPane.showInputDialog(null, "Enter Employee Number:",  "View Employee", JOptionPane.QUESTION_MESSAGE);
+			   
+			   int empNumber = Integer.parseInt(input);
+			   
+			   for (Employee emp : employees) {
+				   if (emp.getNumber() == empNumber) {
+					   foundEmployee = emp;
+					   break;
+				   }
+			   }
+			   if (foundEmployee != null) {
+				   JOptionPane.showMessageDialog(null, foundEmployee.toString(), "Employee Found", JOptionPane.INFORMATION_MESSAGE);
+			   }
+			   else {
+				   JOptionPane.showMessageDialog(null, "Employee not found.", "Error", JOptionPane.ERROR_MESSAGE);
+			   }
+			   validInput = true;
+			   
+		   }
+		   catch(NumberFormatException e) {
+			   JOptionPane.showMessageDialog(null, "Invalid number. Please enter a valid Employee Number.", "InPut Error", JOptionPane.ERROR_MESSAGE);
+		   }
+		   catch(Exception e) {
+			   
+		   }
+	   }
+      			
 
       return null;		
    }
@@ -124,6 +155,7 @@ public class EmployeeSerializer {
     	  
     	  os.writeObject(employees);
     	  System.out.println("Employees have been written to " + employeesFile.getName());
+    	  os.close();
       }
       catch(FileNotFoundException e){
           System.out.println("Cannot open file " + employeesFile.getName() + ".");
@@ -154,7 +186,7 @@ public class EmployeeSerializer {
             System.out.println("Cannot open file " + employeesFile.getName() + ".");
          }
          catch(IOException e){
-            System.out.println("Cannot read from " + employeesFile.getName() + ".");
+            System.out.println("Cannot read from " + employeesFile.getName() + ". " + e.toString());
          }
          catch(ClassNotFoundException e){
             System.out.println("Employee class not found during deserialization.");
