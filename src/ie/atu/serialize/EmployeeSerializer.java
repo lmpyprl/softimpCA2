@@ -282,5 +282,13 @@ public class EmployeeSerializer {
             System.out.println("Employee class not found during deserialization.");
          }
       }
+      
+      int highestNumber = 9999;
+      for (Employee emp : employees) {
+          if (emp.getNumber() > highestNumber) {
+              highestNumber = emp.getNumber();
+          }
+      }
+      Employee.setNextEmployeeNumber(highestNumber + 1);
    }
 }
