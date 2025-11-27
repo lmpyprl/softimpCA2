@@ -33,6 +33,7 @@ public class Employee extends Person
       dob=new Date();
       startDate=new Date();
       salary=0.0;
+      this.name = new Name();
       // Set number to static nextNumber before incrementing nextNumber
       number=nextNumber++;
    }

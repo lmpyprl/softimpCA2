@@ -1,10 +1,7 @@
 /**
  * Class: Software Implementation
- * Instructor: Maria Boyle
- * Description: Class Passenger - Developed for the Flight Booking System
- * Date: dd/mm/yyyy
- * @author Software Implementation Students
- * @version 1.0
+ * Instructor: Stephen McGinley
+
  */
 package ie.atu.flight;
 

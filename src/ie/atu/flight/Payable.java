@@ -1,10 +1,7 @@
 /**
  * Class: B.Sc. in Computing
- * Instructor: Maria Boyle
- * Description: Payable Interface
- * Date: dd/mm/yyyy
- * @author Maria Boyle
- * @version 1.0
+ * Instructor: Stephen McGinley
+
 **/
 package ie.atu.flight;
 

@@ -1,14 +1,14 @@
 /**
  * Class: B.Sc. in Computing
- * Instructor: Maria Boyle
+ * Instructor: Stephen McGinley
  * Description: Models a Name
- * Date: dd/mm/yyyy
- * @author Maria Boyle
- * @version 1.0
+
 **/
 package ie.atu.flight;
 
-public class Name {
+import java.io.Serializable;
+
+public class Name implements Serializable{
    private String title;
    private String firstName;
    private String surname;

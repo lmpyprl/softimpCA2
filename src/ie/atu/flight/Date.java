@@ -1,11 +1,7 @@
 /**
  * Class: B.Sc. in Computing
- * Instructor: Maria Boyle
+ * Instructor: Stephen McGinley
  * Description: Models a Date
- * Date: dd/mm/yyy
- * @author Maria Boyle
- * @version 1.0
- * NOTES:This Date class now contains error handling to ensure d/m/y in correct range.
 **/
 package ie.atu.flight;
 
