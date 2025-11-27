@@ -1,10 +1,7 @@
 /**
  * Class: Software Implementation
- * Instructor: Maria Boyle
+ * Instructor: Stephen McGinley
  * Description: Class Employee - Developed for the Flight Booking System
- * Date: dd/mm/yyyy
- * @author Software Implementation Students
- * @version 1.0
  */
 package ie.atu.flight;
 
@@ -156,6 +153,7 @@ public class Employee extends Person
 	   else // CANCEL_OPTION
 	   return false;
 	}
+   
    
    
    

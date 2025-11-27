@@ -5,8 +5,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import ie.atu.flight.Employee;
+import ie.atu.flight.Name;
 
 public class EmployeeSerializer {
    private ArrayList<Employee> employees;
@@ -141,6 +143,59 @@ public class EmployeeSerializer {
    ///////////////////////////////////////////////////////////////	
    public void edit(){
       // TODO - Write the code for edit()
+	   Employee foundEmployee = null;
+	   boolean validInput = false;
+	   
+	   while (!validInput) {
+		   try {
+			   String input = JOptionPane.showInputDialog(null, "Enter Employee Number to be edited:",  "Deleted Employee", JOptionPane.QUESTION_MESSAGE);
+			   int index =0;
+			   int empNumber = Integer.parseInt(input);
+			   
+			   for (Employee emp : employees) {
+				   if (emp.getNumber() == empNumber) {
+					   foundEmployee = emp;					   
+					   break;					   
+				   }
+				   index++;
+			   }
+			   if (foundEmployee != null) {
+				   JOptionPane.showMessageDialog(null, foundEmployee.toString(), "Employee Found", JOptionPane.INFORMATION_MESSAGE);
+				   
+				   JTextField txtTitle = new JTextField(employees.get(index).getName().getTitle());
+				   JTextField txtFirstName = new JTextField(employees.get(index).getName().getFirstName());
+				   JTextField txtSurname = new JTextField(employees.get(index).getName().getSurname());
+				   JTextField txtPhoneNumber = new JTextField(employees.get(index).getPhoneNumber());
+				   
+				   Object[] message = {
+						   "Title:", txtTitle,
+				            "First Name:", txtFirstName,
+				            "Surname:", txtSurname,
+				            "Phone Number:", txtPhoneNumber,
+				        };
+				   int option = JOptionPane.showConfirmDialog(null, message, 
+                           "Edit Employee Details", JOptionPane.OK_CANCEL_OPTION);
+				   
+				   if ( option == JOptionPane.OK_OPTION) {
+					   Name newName = new Name(txtTitle.getText(), txtFirstName.getText(), txtSurname.getText());
+					   
+					   employees.get(index).setName(newName);
+					   employees.get(index).setPhoneNumber(input);
+				   }
+			   }
+			   else {
+				   JOptionPane.showMessageDialog(null, "Employee not found.", "Error", JOptionPane.ERROR_MESSAGE);
+			   }
+			   validInput = true;
+			   
+		   }
+		   catch(NumberFormatException e) {
+			   JOptionPane.showMessageDialog(null, "Invalid number. Please enter a valid Employee Number.", "InPut Error", JOptionPane.ERROR_MESSAGE);
+		   }
+		   catch(Exception e) {
+			   
+		   }
+	   }
       JOptionPane.showMessageDialog(null, "edit() method must be coded!", "NOT IMPLEMENTED", JOptionPane.INFORMATION_MESSAGE);			
    }
 	

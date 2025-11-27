@@ -1,10 +1,7 @@
 /**
 * Class: Software Implementation
-* Instructor: Maria Boyle
+* Instructor: Stephen McGinley
 * Description: Class Person - Developed for the Flight System
-* Date: dd/mm/yyyy
-* @author Software Implementation Students
-* @version 1.0
 */
 package ie.atu.flight;
 
