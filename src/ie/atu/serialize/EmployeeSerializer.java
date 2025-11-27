@@ -102,6 +102,7 @@ public class EmployeeSerializer {
 			   }
 			   if (foundEmployee != null) {
 				   JOptionPane.showMessageDialog(null, foundEmployee.toString(), "Employee Found", JOptionPane.INFORMATION_MESSAGE);
+				   return foundEmployee;
 			   }
 			   else {
 				   JOptionPane.showMessageDialog(null, "Employee not found.", "Error", JOptionPane.ERROR_MESSAGE);
