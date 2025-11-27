@@ -132,6 +132,40 @@ public class EmployeeSerializer {
    ///////////////////////////////////////////////////////////////////	
    public void delete(){
       // TODO - Write the code for delete()
+	   Employee foundEmployee = null;
+	   boolean validInput = false;
+	   int index =0;
+	   
+	   while (!validInput) {
+		   try {
+			   String input = JOptionPane.showInputDialog(null, "Enter Employee Number:",  "View Employee", JOptionPane.QUESTION_MESSAGE);
+			   
+			   int empNumber = Integer.parseInt(input);
+			   
+			   for (Employee emp : employees) {
+				   if (emp.getNumber() == empNumber) {
+					   foundEmployee = emp;
+					   break;
+				   }
+				   index++;
+			   }
+			   if (foundEmployee != null) {
+				   JOptionPane.showMessageDialog(null, foundEmployee.toString(), "Employee to be Deleted", JOptionPane.INFORMATION_MESSAGE);
+				   employees.remove(index);
+			   }
+			   else {
+				   JOptionPane.showMessageDialog(null, "Employee not found.", "Error", JOptionPane.ERROR_MESSAGE);
+			   }
+			   validInput = true;
+			   
+		   }
+		   catch(NumberFormatException e) {
+			   JOptionPane.showMessageDialog(null, "Invalid number. Please enter a valid Employee Number.", "InPut Error", JOptionPane.ERROR_MESSAGE);
+		   }
+		   catch(Exception e) {
+			   
+		   }
+	   }
       JOptionPane.showMessageDialog(null, "delete() method must be coded!", "NOT IMPLEMENTED", JOptionPane.INFORMATION_MESSAGE);			
    }
 
