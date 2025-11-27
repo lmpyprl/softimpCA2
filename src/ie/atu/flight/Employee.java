@@ -21,7 +21,7 @@ public class Employee extends Person
    private double salary;	
    private int number;
 
-   private static int nextNumber=10000;   // static for unique number - starts off at 1000    
+   private static int nextNumber;   // static for unique number - starts off at 1000    
 
    private final double MAX_SALARY = 150000.00;    // constant variable for MAX_SALARY
 	
@@ -110,6 +110,10 @@ public class Employee extends Person
    }
    public void setSalary(int salary){
       this.salary=salary;
+   }
+   
+   public static void setNextEmployeeNumber(int nextNum) {
+       nextNumber = nextNum;
    }
 	
    public double calculatePay(double taxPercentage) {
