@@ -176,9 +176,9 @@ public class Employee extends Person
 			   JOptionPane.showMessageDialog(dialog, "Please enter numbers correctly", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 		   }
 	   }
-	   else // CANCEL_OPTION
+	   else {return false; }// CANCEL_OPTION
 		   nextNumber--;
-	   return false;
+	   
 	   }
 	   return true;
 	}
