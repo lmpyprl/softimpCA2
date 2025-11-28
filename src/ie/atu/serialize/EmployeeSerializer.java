@@ -232,7 +232,7 @@ public class EmployeeSerializer {
 			   
 		   }
 	   }
-      JOptionPane.showMessageDialog(null, "edit() method must be coded!", "NOT IMPLEMENTED", JOptionPane.INFORMATION_MESSAGE);			
+      			
    }
 	
    // This method will serialize the employees ArrayList when called, 
