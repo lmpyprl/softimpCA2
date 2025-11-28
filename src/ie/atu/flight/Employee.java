@@ -136,27 +136,51 @@ public class Employee extends Person
    }
    
    public boolean readEmployee() {
+	   boolean validInput = false;
+	   JTextField txtEmployeeNumber = new JTextField(String.valueOf(nextNumber));
+	   txtEmployeeNumber.setEditable(false);
+	   txtEmployeeNumber.setColumns(8);
+	   System.out.println("Employee number value: " + this.nextNumber);
+	   while(!validInput) {
+	   
+	   JTextField txtTitle = new JTextField();
 	   JTextField txtFirstName = new JTextField();
 	   JTextField txtSurname = new JTextField();
 	   JTextField txtPhoneNumber = new JTextField();
+	   JTextField txtSalary = new JTextField();
 	   Object[] message = {
+		   "Employee Number:", txtEmployeeNumber,
+		   "Title: ", txtTitle,
 		   "First Name:", txtFirstName,
-		   "Surname:", txtSurname,
-		   "Phone Number:", txtPhoneNumber,
+			"Surname:", txtSurname,
+			"Phone Number:", txtPhoneNumber,
+			"Salary:", txtSalary
+		   
 	   };
 	   JDialog dialog = new JDialog();
 	   dialog.setAlwaysOnTop(true);
+	   
 	   int option = JOptionPane.showConfirmDialog(dialog, message,
 	   "ENTER EMPLOYEE DETAILS", JOptionPane.OK_CANCEL_OPTION);
 	   
 	   if (option == JOptionPane.OK_OPTION){
-		   this.name.setFirstName(txtFirstName.getText());
-		   this.name.setSurname(txtSurname.getText());
-		   this.phoneNumber=txtPhoneNumber.getText();
-		   return true;
+		   try {
+			   this.name.setTitle(txtTitle.getText());
+			   this.name.setFirstName(txtFirstName.getText());
+			   this.name.setSurname(txtSurname.getText());
+			   this.phoneNumber=txtPhoneNumber.getText();
+			   this.salary=Double.parseDouble(txtSalary.getText());
+		   
+		   		validInput=true;
+		   } catch (NumberFormatException e) {
+			   JOptionPane.showMessageDialog(dialog, "Please enter numbers correctly", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
+		   }
 	   }
 	   else // CANCEL_OPTION
+		   nextNumber--;
 	   return false;
+	   }
+	   return true;
 	}
    
    

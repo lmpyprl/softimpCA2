@@ -44,12 +44,14 @@ public class EmployeeSerializer {
       // TODO - Update add() so it checks if Cancel was clicked when reading Employee
        
       // Read its details
-      if(employee.readEmployee()) {}
+      if(employee.readEmployee()) {
+    	  employees.add(employee);	
+      }
       else {
     	  System.out.println("Employee Add was cancelled. ");
       }
       // And add it to the employees ArrayList
-      employees.add(employee);	
+      
    }
 
    ///////////////////////////////////////////////////////
