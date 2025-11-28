@@ -168,7 +168,7 @@ public class EmployeeSerializer {
 			   
 		   }
 	   }
-      JOptionPane.showMessageDialog(null, "delete() method must be coded!", "NOT IMPLEMENTED", JOptionPane.INFORMATION_MESSAGE);			
+      			
    }
 
    ///////////////////////////////////////////////////////////////
